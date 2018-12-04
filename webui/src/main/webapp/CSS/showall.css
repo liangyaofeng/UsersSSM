@@ -1,0 +1,88 @@
+#list-title {
+    width: 318px;
+    height: 56px;
+    margin: 0;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.list-item {
+    /*float: left;*/
+    width: 100px;
+    height: 50px;
+    margin: 2px;
+    line-height: 50px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.list-item-checked {
+    background-color: #70adff;
+    color: #ffffff;
+}
+
+#content-box {
+    position: relative;
+    clear: both;
+    width: 900px;
+    height: 600px;
+    margin: 0 2px;
+    display: inline-block;
+}
+
+.contents {
+    position: absolute;
+    width: 900px;
+    height: 600px;
+    margin: 0;
+    font-size: 18px;
+    /*line-height: 300px;*/
+    /*text-align: center;*/
+    border: 1px solid #000;
+    z-index: 0;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+
+.contents-checked {
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+}
+#div1{
+    width: 200px;
+    height: 600px;
+    /*background: red;*/
+    border: 1px solid black;
+    display: inline-block;
+    float: left;
+}
+#divtitle1{
+    width: 600px;
+    height: 50px;
+    display: inline-block;
+    float: left;
+    /*background: orange;*/
+}
+#divtitle12{
+    width: 200px;
+    display: inline-block;
+    height: 50px;
+    /*background: pink;*/
+}
+#divlaoda{
+    width: 1000px;
+    height: 50px;
+}
+#divgukai{
+    width:1000px;
+    height: 20px;
+    display: block;
+}

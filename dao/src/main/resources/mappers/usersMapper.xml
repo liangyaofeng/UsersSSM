@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间应该是对应接口的包名+接口名 -->
+<mapper namespace="com.liangyaofeng.dao.UsersDao">
+    <!--登录-->
+    <select id="fintUserByusername" resultType="com.liangyaofeng.entity.Users">
+      select username,password,phone,email,Udate from users where username=#{username}
+    </select>
+
+    <!--注册-->
+    <insert id="insertUsers" parameterType="com.liangyaofeng.entity.Users">
+      insert into users(username,password,phone,email)
+      values(#{username},#{password},#{phone},#{email})
+    </insert>
+
+
+    <select id="getAllUsers" resultType="Users">
+        select id,username,password,phone,email,Udate from users
+        <where>
+            <if test="username!=null and username!=''">
+                username like concat(concat('%',#{username}),'%')
+            </if>
+            <if test="phone!=null and phone!=''">
+                and phone like concat(concat('%',#{phone}),'%')
+            </if>
+            <if test="email!=null and email!=''">
+                and email like concat(concat('%',#{email}),'%')
+            </if>
+        </where>
+    </select>
+
+
+    <delete id="deletebyid" parameterType="String">
+        delete from users where username=#{username}
+    </delete>
+
+    <select id="findUsersbyid" resultType="Users">
+        select * from users where id=#{id}
+    </select>
+
+
+
+    <!--修改-->
+    <update id="updateUsers">
+        update users
+        <set>
+            <if test="username!=null and username!=''">
+                username =#{username},
+            </if>
+            <if test="password!=null and password!=''">
+                password =#{password},
+            </if>
+            <if test="phone!=null and phone!=''">
+                phone =#{phone},
+            </if>
+            <if test="email!=null and email!=''">
+                email=#{email},
+            </if>
+            <if test="udate!=null and udate!=''">
+                udate = #{udate}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+
+
+    <!--修改-->
+    <update id="updatepwd">
+        update users
+        <set>
+            <if test="password!=null and password!=''">
+                password =#{password},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+
+
+    <!--多删除-->
+    <delete id="deletebyall">
+        delete from users where id in
+        <foreach collection="list" open="(" item="id" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+
+
+
+</mapper>
