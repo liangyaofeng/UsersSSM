@@ -17,7 +17,7 @@
     </modules>
     <properties>
         <usersssm-version>1.0-SNAPSHOT</usersssm-version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <spring-test.version>4.3.18.RELEASE</spring-test.version>
         <spring.version>4.3.0.RELEASE</spring.version>
         <jstl.version>1.2</jstl.version>
